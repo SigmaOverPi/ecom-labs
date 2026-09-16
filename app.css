@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+*{
+    font-family: 'Graduate', sans-serif;
+}
+
+body, .create-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.create-body{
+    height: 98vh;
+}
+
+a{
+    text-decoration: none;
+    color: brown;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.form-item{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.task{
+    border: 0.5px solid gray;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: none;
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.task.full{
+    display: none;
+}
+
+.task:hover{
+    box-shadow: -5px 4px 2px gray;
+}
+
+.task p, .task h3, .task h2, .task h1{
+    margin: 0;
+}
