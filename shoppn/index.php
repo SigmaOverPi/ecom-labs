@@ -4,6 +4,12 @@ error_reporting(E_ALL);
 
 require __DIR__ . "/core/core.php";
 
+require __DIR__ . "/controllers/CartController.php";
+
+require __DIR__ . "/controllers/CustomerController.php";
+
+require __DIR__ . "/controllers/ProductController.php";
+
 ?>
 
 <!DOCTYPE html>

@@ -51,13 +51,12 @@ function get_flash($key){
         return $display_message;
     }else{
         // Display error message if session key doesn't exist
-        die('Session key does not exist');
+        // die('Session key does not exist'); // uncomment later
+        return '';
     }
 }
 function clean($value){
-    trim($value);
-    strip_tags($value);
-    htmlspecialchars($value);
+    return htmlspecialchars(strip_tags(trim($value)), ENT_QUOTES, 'UTF-8');
 }
 function log_err($msg){
     // Making sure message is always on a new line
