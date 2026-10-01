@@ -31,6 +31,7 @@ main{
     height: 100%;
 }
 
+/* Form styling */
 #register-form, #login-form{
     display: flex;
     flex-direction: column;
@@ -38,10 +39,10 @@ main{
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    border: 1.5px solid gray;
+    /* border: 1.5px solid gray; */
     border-radius: 5px;
-    box-shadow: 5px 4px 2px gray;
-    padding: 1rem;
+    /* box-shadow: 5px 4px 2px gray; */
+    /* padding: 1rem; */
 }
 
 .form-item{
@@ -59,13 +60,14 @@ main{
 .form-item input, .form-item select{
     width: 50vw;
     height: 100%;
+    font-size: 18px;
 }
 
 #register-form button, #login-form button{
     height: 50px;
     width: 200px;
     transition: all 0.5s;
-    box-shadow: -5px 4px 2px gray;
+    box-shadow: 5px 4px 2px gray;
     border: 0.5px solid black;
     border-radius: 5px;
 }
