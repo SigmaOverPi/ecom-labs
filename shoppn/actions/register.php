@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $_SESSION['email'] = $email;
         $_SESSION['user_role'] = 2; // default customer role is 2
 
-        redirect(BASE_URL . '/views/my_account.php');
+        redirect(BASE_URL . '/views/home.php');
     }else{
         // Use error message from result
         set_flash('error', $result['error']);

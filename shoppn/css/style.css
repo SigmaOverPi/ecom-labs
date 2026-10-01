@@ -8,6 +8,22 @@ body{
     height: 90vh;
 }
 
+nav{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    a{
+        text-decoration: none;
+        color: brown;
+    }
+}
+
+.side-nav{
+    display: flex;
+    gap: 20px;
+}
+
 main{
     display: flex;
     justify-content: center;

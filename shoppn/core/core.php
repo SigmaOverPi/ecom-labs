@@ -6,7 +6,8 @@ date_default_timezone_set('Africa/Accra');
 require 'db_class.php';
 
 define('BASE_PATH', __DIR__ . '../');
-define('BASE_URL', '/shoppn');
+define('BASE_URL', '/shoppn/'); // local development
+// define('BASE_URL', '/~nongyin.awindor/labs/shoppn/'); // school server
 
 function get_ip(){
     return $_SERVER['REMOTE_ADDR'];

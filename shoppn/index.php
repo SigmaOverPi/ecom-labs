@@ -11,19 +11,19 @@ require __DIR__ . "/controllers/CustomerController.php";
 require __DIR__ . "/controllers/ProductController.php";
 
 ?>
-
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>TESTING MIC 1 2</h1>
-        <script src="" async defer></script>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Shoppn</title>
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css">
+</head>
+<body>
+    <?php require 'views/layout/header.php'; ?>
+
+    <main>
+        <h1>Welcome to the Home Page</h1>
+    </main>
+</body>
 </html>

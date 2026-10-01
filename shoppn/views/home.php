@@ -13,7 +13,7 @@ require_once '../core/core.php';
     <?php require 'layout/header.php'; ?>
 
     <main>
-        <h1>Welcome to the Home Page</h1>
+        <h1>Welcome to Shoppn</h1>
     </main>
 </body>
 </html>
