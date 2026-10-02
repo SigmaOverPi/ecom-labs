@@ -20,10 +20,10 @@ require __DIR__ . "/controllers/ProductController.php";
     <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css">
 </head>
 <body>
-    <?php require 'views/layout/header.php'; ?>
-
-    <main>
-        <h1>Welcome to the Home Page</h1>
+    <main class="home-main">
+        <h1>Welcome to shoppn</h1>
+        <a href="<?= BASE_URL ?>views/login.php">Login</a>
+        <a href="<?= BASE_URL ?>views/register.php">Register</a>
     </main>
 </body>
 </html>
