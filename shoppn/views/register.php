@@ -32,7 +32,8 @@ require_once "../core/core.php";
 
                 <div class="form-item">
                     <label for="pass">Password</label>
-                    <input type="password" name="pass">
+                    <input class="pass-input" type="password" name="pass">
+                    <p style="display: none; max-width: 300px;" id="pass-regex-error">Password Must Be At Least 8 Characters and Must Contain 1 of each(lowercase, uppercase, number, special)</p>
                 </div>
 
                 <div class="form-item">
@@ -53,7 +54,7 @@ require_once "../core/core.php";
                     <p style="display: none;" id="contact-regex-error">Regex Error</p>
                 </div>
 
-                <button type="submit">Submit Form</button>
+                <button type="submit">Register</button>
             </form>
         </main>
         <script src="../js/validate.js"></script>

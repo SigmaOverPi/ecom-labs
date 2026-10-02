@@ -16,6 +16,17 @@ nav{
     a{
         text-decoration: none;
         color: brown;
+
+        background-image: linear-gradient(brown, brown);
+        background-repeat: no-repeat;
+        background-position: 0% 100%;
+        background-size: 0% 2px;
+
+        transition: background-size 0.7s ease;
+    }
+
+    a:hover{
+        background-size: 100% 2px;
     }
 }
 
@@ -74,4 +85,29 @@ main{
 
 #register-form button:hover, #login-form button:hover{
     box-shadow: none;
+}
+
+/* Home styles */
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+.items-grid{
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid brown;
+    padding: 12px;
+    width: 200px;
 }

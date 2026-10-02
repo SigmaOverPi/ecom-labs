@@ -13,22 +13,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if(empty($name) || empty($email) || empty($pass)){
         set_flash('error', 'Required fields cannot be empty');
-        redirect(BASE_URL . '/views/register.php');
+        redirect(BASE_URL . 'views/register.php');
     }
 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         set_flash('error', 'Please enter a valid email');
-        redirect(BASE_URL . '/views/register.php');
+        redirect(BASE_URL . 'views/register.php');
     }
 
     if(strlen($email) > 50){
         set_flash('error', 'Email should be less than 50 characters');
-        redirect(BASE_URL . '/views/register.php');
+        redirect(BASE_URL . 'views/register.php');
     }
 
     if(strlen($pass) < 8){
-        set_flash('error', 'Password must be at least 8 characters in length');
-        redirect(BASE_URL . '/views/register.php');
+        $passRegex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/';
+        if(!preg_match($passRegex, $pass)){
+            set_flash('error', 'Password must be at least 8 characters in length, with 1 uppercase, 1 lowercase, 1 number, and 1 special character');
+            redirect(BASE_URL . 'views/register.php');
+        }
     }
 
     $controller = new CustomerController();
@@ -56,8 +59,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Use error message from result
         set_flash('error', $result['error']);
 
-        redirect(BASE_URL . '/views/register.php');
+        redirect(BASE_URL . 'views/register.php');
     }
 }else{
-    redirect(BASE_URL . '/views/register.php');
+    redirect(BASE_URL . 'views/register.php');
 }
