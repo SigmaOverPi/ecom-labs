@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $_SESSION['email'] = $user_data['email'];
         $_SESSION['user_role'] = $user_data['user_role'];
 
-        redirect(BASE_URL . '/views/home.php');
+        redirect(BASE_URL . 'views/home.php');
     }else{
         set_flash('error', $result['error']);
         redirect(BASE_URL . 'views/login.php');
