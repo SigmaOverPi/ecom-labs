@@ -17,7 +17,7 @@ require_once "../core/core.php";
     </head>
     <body>
         <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('error') ?></p>
-        <main>
+        <main class="home-main">
             <form id="register-form" action="../actions/register.php" method="post">
                 <div class="form-item">
                     <label for="name">Name</label>
@@ -56,6 +56,7 @@ require_once "../core/core.php";
 
                 <button type="submit">Register</button>
             </form>
+            <p>Already a user? <a style="font-size: 16px;" href="login.php">Login</a></p>
         </main>
         <script src="../js/validate.js"></script>
     </body>

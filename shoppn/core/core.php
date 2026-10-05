@@ -26,12 +26,13 @@ function is_admin(){
 }
 function require_login(){
     if(!is_logged_in()){
-        redirect('login.php');
+        redirect(BASE_URL . "views/login.php");
     }
 }
 function require_admin(){
     if(!is_admin()){
-        redirect('login.php');
+        set_flash("error", "Access denied. Admins only");
+        redirect(BASE_URL . "views/home.php");
     }
 }
 

@@ -13,6 +13,7 @@ require_once '../core/core.php';
     <?php require 'layout/header.php'; ?>
 
     <main>
+        <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('error') ?></p>
         <h1>Welcome to Shoppn</h1>
 
         <div class="items-grid">
