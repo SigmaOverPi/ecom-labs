@@ -23,7 +23,7 @@ if(isset($_GET['edit'])){
 <body>
     <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('error') ?></p>
     <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('success') ?></p>
-    <main class="home-main">
+    <main class="form-main">
         <table>
             <tr>
                 <th>Category Name</th>

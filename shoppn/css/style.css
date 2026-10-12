@@ -59,6 +59,29 @@ nav{
     }
 }
 
+.form-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    a{
+        font-size: 20px;
+        text-decoration: none;
+        color: brown;
+
+        background-image: linear-gradient(brown, brown);
+        background-repeat: no-repeat;
+        background-position: 0% 100%;
+        background-size: 0% 2px;
+
+        transition: background-size 0.7s ease;
+    }
+
+    a:hover{
+        background-size: 100% 2px;
+    }
+}
+
 .side-nav{
     display: flex;
     gap: 20px;

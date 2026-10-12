@@ -17,7 +17,7 @@ require_once "../core/core.php";
     </head>
     <body>
         <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('error') ?></p>
-        <main class="home-main">
+        <main class="form-main">
             <form id="register-form" action="../actions/register.php" method="post">
                 <div class="form-item">
                     <label for="name">Name</label>
