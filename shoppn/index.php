@@ -2,28 +2,78 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-require __DIR__ . "/core/core.php";
+require_once __DIR__ . "/core/core.php";
 
-require __DIR__ . "/controllers/CartController.php";
+require_once __DIR__ . "/controllers/ProductController.php";
 
-require __DIR__ . "/controllers/CustomerController.php";
+$controller = new ProductController();
 
-require __DIR__ . "/controllers/ProductController.php";
+$q = trim($_GET['q'] ?? '');
+$cat = (int) ($_GET['cat'] ?? 0);
+$brand = (int) ($_GET['brand'] ?? 0);
 
+// Search first, then category, then brand, otherwise featured
+if($q !== ''){
+    $products = $controller->searchProducts($q);
+    $heading = 'Results for "' . $q . '"';
+}elseif($cat > 0){
+    $products = $controller->getProductsByCategory($cat);
+    $category = $controller->getCategoryById($cat);
+    $heading = $category ? 'Category: ' . $category['cat_name'] : 'Category not found';
+}elseif($brand > 0){
+    $products = $controller->getProductsByBrand($brand);
+    $brandRow = $controller->getBrandById($brand);
+    $heading = $brandRow ? 'Brand: ' . $brandRow['brand_name'] : 'Brand not found';
+}else{
+    $products = $controller->getFeaturedProducts(12);
+    $heading = 'Featured Products';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Shoppn</title>
+    <title>Shop - Shoppn</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css">
 </head>
 <body>
+    <?php require __DIR__ . '/views/layout/header.php'; ?>
+
     <main class="home-main">
-        <h1>Welcome to shoppn</h1>
-        <a href="<?= BASE_URL ?>views/login.php">Login</a>
-        <a href="<?= BASE_URL ?>views/register.php">Register</a>
+        <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('error') ?></p>
+        <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('success') ?></p>
+
+        <div class="shop-layout">
+            <?php require __DIR__ . '/views/layout/sidebar.php'; ?>
+
+            <section class="shop-content">
+                <form class="search-form" action="<?= BASE_URL ?>index.php" method="get">
+                    <input type="search" name="q" placeholder="Search products..." value="<?= htmlspecialchars($q) ?>">
+                    <button type="submit">Search</button>
+                </form>
+
+                <h2><?= htmlspecialchars($heading) ?></h2>
+
+                <?php if(empty($products)): ?>
+                    <p>No products found.</p>
+                <?php else: ?>
+                    <div class="items-container">
+                        <?php foreach($products as $product): ?>
+                            <div class="item">
+                                <img src="<?= BASE_URL . htmlspecialchars($product['product_image']) ?>" alt="<?= htmlspecialchars($product['product_title']) ?>">
+                                <p><?= htmlspecialchars($product['product_title']) ?></p>
+                                <p><?= number_format($product['product_price'], 2) ?></p>
+                                <div class="item-links">
+                                    <a href="<?= BASE_URL ?>views/single_product.php?id=<?= $product['product_id'] ?>">Details</a>
+                                    <a href="<?= BASE_URL ?>actions/add_to_cart.php?id=<?= $product['product_id'] ?>">Add to Cart</a>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif ?>
+            </section>
+        </div>
     </main>
 </body>
 </html>

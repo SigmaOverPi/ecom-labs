@@ -5,7 +5,7 @@ date_default_timezone_set('Africa/Accra');
 
 require 'db_class.php';
 
-define('BASE_PATH', __DIR__ . '../');
+define('BASE_PATH', __DIR__ . '/../');
 define('BASE_URL', '/shoppn/'); // local development
 // define('BASE_URL', '/~nongyin.awindor/labs/shoppn/'); // school server
 
@@ -65,7 +65,7 @@ function log_err($msg){
     $msg .= "\n";
 
     // Absolute pathway to file
-    $file = __DIR__ . '../error/error.log';
+    $file = __DIR__ . '/../error/error.log';
 
     // Opening file in append-only('a') mode
     $handle = fopen($file, 'a');

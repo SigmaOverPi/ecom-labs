@@ -79,4 +79,74 @@ class ProductController{
             return ["success" => false, "error" => "Failed to update category"];
         }
     }
+
+    public function addProduct($cat, $brand, $title, $price, $desc, $image, $keywords){
+        if(empty($cat) || empty($brand) || empty($title) || $price <= 0 || empty($desc) || empty($image) || empty($keywords)){
+            return ["success" => false, "error" => "All fields must be filled"];
+        }
+
+        $result = $this->model->addProduct($cat, $brand, $title, $price, $desc, $image, $keywords);
+
+        if($result){
+            return ["success" => true];
+        }else{
+            return ["success" => false, "error" => "Failed to add product"];
+        }
+    }
+
+    public function updateProduct($id, $cat, $brand, $title, $price, $desc, $image, $keywords){
+        if(empty($id) || empty($cat) || empty($brand) || empty($title) || $price <= 0 || empty($desc) || empty($image) || empty($keywords)){
+            return ["success" => false, "error" => "All fields must be filled"];
+        }
+
+        $result = $this->model->updateProduct($id, $cat, $brand, $title, $price, $desc, $image, $keywords);
+
+        if($result){
+            return ["success" => true];
+        }else{
+            return ["success" => false, "error" => "Failed to update product"];
+        }
+    }
+
+    public function getProductById($id){
+        return $this->model->getProductById($id);
+    }
+
+    public function getAllProducts(){
+        return $this->model->getAllProducts();
+    }
+
+    public function getFeaturedProducts($n = 12){
+        return $this->model->getFeaturedProducts((int) $n);
+    }
+
+    public function getProductsByCategory($cat){
+        $cat = (int) $cat;
+
+        if($cat <= 0){
+            return [];
+        }
+
+        return $this->model->getProductsByCategory($cat);
+    }
+
+    public function getProductsByBrand($brand){
+        $brand = (int) $brand;
+
+        if($brand <= 0){
+            return [];
+        }
+
+        return $this->model->getProductsByBrand($brand);
+    }
+
+    public function searchProducts($q){
+        $q = trim($q);
+
+        if($q === ''){
+            return [];
+        }
+
+        return $this->model->searchProducts($q);
+    }
 }
