@@ -28,8 +28,8 @@ if(isset($_GET['edit'])){
     <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css">
 </head>
 <body>
-    <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('error') ?></p>
-    <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('success') ?></p>
+    <?php require __DIR__ . '/../layout/header.php'; ?>
+
     <main class="form-main">
         <table>
             <tr>
@@ -112,6 +112,11 @@ if(isset($_GET['edit'])){
             </div>
 
             <button type="submit"><?= isset($productToEdit) ? 'Update Product' : 'Add Product' ?></button>
+
+            <?php if(isset($productToEdit)): ?>
+                <!-- Leaves edit mode and goes back to the add form -->
+                <a href="product.php">Cancel</a>
+            <?php endif ?>
         </form>
     </main>
 </body>

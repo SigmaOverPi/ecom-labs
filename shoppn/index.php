@@ -41,8 +41,6 @@ if($q !== ''){
     <?php require __DIR__ . '/views/layout/header.php'; ?>
 
     <main class="home-main">
-        <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('error') ?></p>
-        <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('success') ?></p>
 
         <div class="shop-layout">
             <?php require __DIR__ . '/views/layout/sidebar.php'; ?>
@@ -61,9 +59,11 @@ if($q !== ''){
                     <div class="items-container">
                         <?php foreach($products as $product): ?>
                             <div class="item">
-                                <img src="<?= BASE_URL . htmlspecialchars($product['product_image']) ?>" alt="<?= htmlspecialchars($product['product_title']) ?>">
+                                <div class="img-container">
+                                    <img src="<?= BASE_URL . htmlspecialchars($product['product_image']) ?>" alt="<?= htmlspecialchars($product['product_title']) ?>">
+                                </div>
                                 <p><?= htmlspecialchars($product['product_title']) ?></p>
-                                <p><?= number_format($product['product_price'], 2) ?></p>
+                                <p style="margin: 0 0 15px 0;">₵<?= number_format($product['product_price'], 2) ?></p>
                                 <div class="item-links">
                                     <a href="<?= BASE_URL ?>views/single_product.php?id=<?= $product['product_id'] ?>">Details</a>
                                     <a href="<?= BASE_URL ?>actions/add_to_cart.php?id=<?= $product['product_id'] ?>">Add to Cart</a>

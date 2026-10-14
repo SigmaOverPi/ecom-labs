@@ -34,9 +34,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if($result['success'] == true){
         $user_data = $result['data'];
 
-        $_SESSION['name'] = $user_data['name'];
+        $_SESSION['name'] = $user_data['customer_name'];
         $_SESSION['customer_id'] = $user_data['customer_id']; 
-        $_SESSION['email'] = $user_data['email'];
+        $_SESSION['email'] = $user_data['customer_email'];
         $_SESSION['user_role'] = $user_data['user_role'];
 
         redirect(BASE_URL . 'views/home.php');

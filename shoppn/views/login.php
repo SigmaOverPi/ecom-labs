@@ -16,7 +16,8 @@ require_once "../core/core.php";
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('error') ?></p>
+        <?php require __DIR__ . '/layout/header.php'; ?>
+
         <main class="form-main">
             <form id="login-form" action="../actions/login.php" method="post">
                 <div class="form-item">

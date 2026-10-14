@@ -21,8 +21,8 @@ if(isset($_GET['edit'])){
     <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css">
 </head>
 <body>
-    <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('error') ?></p>
-    <p style="display: flex; justify-content: center; align-items: center;"><?php echo get_flash('success') ?></p>
+    <?php require __DIR__ . '/../layout/header.php'; ?>
+
     <main class="form-main">
         <table>
             <tr>
@@ -46,6 +46,7 @@ if(isset($_GET['edit'])){
                 </div>
 
                 <button type="submit">Update Brand</button>
+                <a href="brand.php">Cancel</a>
             </form>
             <?php else: ?>
                 <form id="register-form" action="<?= BASE_URL ?>actions/add_brand.php" method="post">

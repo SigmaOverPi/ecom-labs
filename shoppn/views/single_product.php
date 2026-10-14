@@ -36,7 +36,7 @@ $product = ($id > 0) ? $controller->getProductById($id) : null;
                             <h2><?= htmlspecialchars($product['product_title']) ?></h2>
                             <p>Category: <a href="<?= BASE_URL ?>index.php?cat=<?= $product['product_cat'] ?>"><?= htmlspecialchars($product['cat_name']) ?></a></p>
                             <p>Brand: <a href="<?= BASE_URL ?>index.php?brand=<?= $product['product_brand'] ?>"><?= htmlspecialchars($product['brand_name']) ?></a></p>
-                            <p>Price: <?= number_format($product['product_price'], 2) ?></p>
+                            <p>Price: ₵<?= number_format($product['product_price'], 2) ?></p>
                             <p><?= nl2br(htmlspecialchars($product['product_desc'])) ?></p>
 
                             <a href="<?= BASE_URL ?>actions/add_to_cart.php?id=<?= $product['product_id'] ?>">Add to Cart</a>
