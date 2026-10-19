@@ -39,7 +39,7 @@ $product = ($id > 0) ? $controller->getProductById($id) : null;
                             <p>Price: ₵<?= number_format($product['product_price'], 2) ?></p>
                             <p><?= nl2br(htmlspecialchars($product['product_desc'])) ?></p>
 
-                            <a href="<?= BASE_URL ?>actions/add_to_cart.php?id=<?= $product['product_id'] ?>">Add to Cart</a>
+                            <a href="<?= BASE_URL ?>actions/add_to_cart.php?pid=<?= $product['product_id'] ?>">Add to Cart</a>
                             <a href="<?= BASE_URL ?>index.php">Back to shop</a>
                         </div>
                     </div>

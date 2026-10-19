@@ -2,6 +2,12 @@
 // Read flash messages once (get_flash clears them), so they only show when set
 $flashError = get_flash('error');
 $flashSuccess = get_flash('success');
+
+// Cart count for this visitor, guests included (carts are tracked by IP)
+require_once __DIR__ . '/../../controllers/CartController.php';
+
+$cartController = new CartController();
+$cartCount = $cartController->getCartCount(get_ip());
 ?>
 <header class="site-header">
     <nav>
@@ -21,6 +27,10 @@ $flashSuccess = get_flash('success');
                             </div>
 
                             <div class="conditional-links">
+                                <div style="display: flex; gap: 2px;">
+                                    <a class="cart-badge" href="<?= BASE_URL; ?>views/cart.php">Cart</a>
+                                    <span class="cart-count"><?= $cartCount ?></span>
+                                </div>
                                 <span class="welcome">Hi, <?= htmlspecialchars($_SESSION['name'] ?? 'user'); ?></span>
                                 <a href="<?= BASE_URL; ?>logout.php">Logout</a>
                             </div>
@@ -28,6 +38,10 @@ $flashSuccess = get_flash('success');
 
                     <?php else: ?>
                         <div class="side-nav full">
+                            <div style="display: flex; gap: 2px;">
+                                <a class="cart-badge" href="<?= BASE_URL; ?>views/cart.php">Cart</a>
+                                <span class="cart-count"><?= $cartCount ?></span>
+                            </div>
                             <span class="welcome">Hi, <?= htmlspecialchars($_SESSION['name'] ?? 'user'); ?></span>
                             <a href="<?= BASE_URL; ?>logout.php">Logout</a>
                         </div>
@@ -40,6 +54,10 @@ $flashSuccess = get_flash('success');
                 <?php else: ?>
                     <div class="side-nav full">
                         <a href="<?= BASE_URL; ?>index.php">Shop</a>
+                        <div style="display: flex; gap: 2px;">
+                            <a class="cart-badge" href="<?= BASE_URL; ?>views/cart.php">Cart</a>
+                            <span class="cart-count"><?= $cartCount ?></span>
+                        </div>
                         <a href="<?= BASE_URL; ?>views/register.php">Register</a>
                         <a href="<?= BASE_URL; ?>views/login.php">Login</a>
                     </div>

@@ -66,7 +66,7 @@ if($q !== ''){
                                 <p style="margin: 0 0 15px 0;">₵<?= number_format($product['product_price'], 2) ?></p>
                                 <div class="item-links">
                                     <a href="<?= BASE_URL ?>views/single_product.php?id=<?= $product['product_id'] ?>">Details</a>
-                                    <a href="<?= BASE_URL ?>actions/add_to_cart.php?id=<?= $product['product_id'] ?>">Add to Cart</a>
+                                    <a href="<?= BASE_URL ?>actions/add_to_cart.php?pid=<?= $product['product_id'] ?>">Add to Cart</a>
                                 </div>
                             </div>
                         <?php endforeach; ?>

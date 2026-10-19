@@ -35,6 +35,26 @@ main{
     color: gray;
 }
 
+/* Cart count shown as a small circle next to "Cart" */
+.cart-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cart-count{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 4px;
+    border-radius: 11px;
+    background-color: brown;
+    color: white;
+    font-size: 12px;
+}
+
 .flash{
     text-align: center;
     margin: 10px 0 0;
@@ -128,7 +148,7 @@ nav{
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-between;
-    width: 38%;
+    width: 45%;
 }
 
 .side-nav.full{
@@ -322,4 +342,63 @@ nav{
     .shop-layout{
         flex-direction: column;
     }
+}
+
+
+/* Cart page (Task 12) */
+.cart-table{
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse;
+}
+
+.cart-table th, .cart-table td{
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    text-align: left;
+}
+
+.cart-product{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-product img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.cart-table input[type="number"]{
+    width: 60px;
+    font-size: 16px;
+}
+
+.cart-total td{
+    font-weight: bold;
+    border-bottom: none;
+}
+
+.cart-form{
+    width: 100%;
+    max-width: 900px;
+    overflow-x: auto;
+}
+
+.cart-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cart-actions button{
+    height: 40px;
+    padding: 0 16px;
+    background-color: transparent;
+    border: 0.5px solid black;
+    border-radius: 5px;
+    cursor: pointer;
 }
