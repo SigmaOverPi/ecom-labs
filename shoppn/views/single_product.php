@@ -16,6 +16,7 @@ $product = ($id > 0) ? $controller->getProductById($id) : null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $product ? htmlspecialchars($product['product_title']) : 'Product' ?> - Shoppn</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css">
+    <link rel="shortcut icon" href="<?= BASE_URL ?>images/shoppn.png">
 </head>
 <body>
     <?php require __DIR__ . '/layout/header.php'; ?>

@@ -14,6 +14,7 @@ require_once "../core/core.php";
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/style.css">
+        <link rel="shortcut icon" href="<?= BASE_URL ?>images/shoppn.png">
     </head>
     <body>
         <?php require __DIR__ . '/layout/header.php'; ?>
